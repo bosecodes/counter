@@ -1,5 +1,6 @@
 <mat-card>
     <mat-card-content>
+        <h3>{{(counter$ | async)?.channelName}}</h3>
         <mat-form-field>
             <mat-label>Counter Input</mat-label>
             <input matInput [(ngModel)] = "counterInput">
@@ -12,6 +13,6 @@
             </mat-select>
         </mat-form-field>
         <br>
-        <button mat-raised-button color="primary" (click)="onCustomIncrement()">Custom Increment</button>
+        <button mat-raised-button color="primary" (click)="onCustomIncrement()">Proceed</button>
     </mat-card-content>
 </mat-card>
