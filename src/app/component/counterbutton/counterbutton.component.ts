@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { decrement, increment, reset } from 'src/app/shared/store/counter.actions';
+import { decrement, increment, rename, reset } from 'src/app/shared/store/counter.actions';
+import { CounterModel } from 'src/app/shared/store/counter.model';
 
 @Component({
   selector: 'app-counterbutton',
@@ -8,7 +9,7 @@ import { decrement, increment, reset } from 'src/app/shared/store/counter.action
   styleUrls: ['./counterbutton.component.scss']
 })
 export class CounterbuttonComponent {
-  constructor(private store: Store<{counter: {counter:number}}>) {
+  constructor(private store: Store<{counter: CounterModel}>) {
 
   }
   
@@ -21,6 +22,10 @@ export class CounterbuttonComponent {
   }
 
   onReset() {
-    this.store.dispatch(reset())
+    this.store.dispatch(reset({channel: 'Somdev Basu'}))
+  }
+
+  onRename() {
+    this.store.dispatch(rename({channel: "Basu Somdev"}))
   }
 }
